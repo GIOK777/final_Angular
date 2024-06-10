@@ -1,0 +1,26 @@
+@if (product) {
+    <div class="card" style="width: 18rem">
+      <img
+        [src]="product.thumbnail"
+        class="card-img-top"
+        alt="{{ product.title }} image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">
+          {{ product.description }}
+        </p>
+        <a [routerLink]="['/product', product._id]" class="btn btn-primary">
+          Check product
+        </a>
+      </div>
+      <div class="card-footer">
+        <p class="text-center muted m-auto">
+          {{ product.issueDate }}
+        </p>
+      </div>
+    </div>
+  } @else {
+    <p>No product</p>
+  }
+  

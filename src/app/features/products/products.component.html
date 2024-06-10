@@ -1,0 +1,15 @@
+<section class="container-fluid">
+    <h1>Products</h1>
+    <hr />
+    <section class="row">
+        <aside class="col-8">
+          <section
+            class="d-flex justify-content-center align-items center align-content center gap-3"
+          >
+            @for (product of products; track product._id) {
+              <app-product-preview [product]="product"></app-product-preview>
+            }
+          </section>
+        </aside>
+      </section>
+</section>

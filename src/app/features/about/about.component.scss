@@ -1,0 +1,45 @@
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+
+section.about-page {
+
+    h2 {
+        padding-top: 100px;
+        text-align: center;
+        font-size: 62px;
+        font-weight: 700;
+        color: #3A54B4;
+    }
+    aside.flex-center {
+        width: 100%;
+        background-color: white;
+        
+        article {
+            margin-top: 100px;
+            
+            
+            h3 {
+                width: 290px;
+                height: 50px;
+                font-size: 22px;
+                font-weight: 600;
+                color: #3A54B4;
+                margin-bottom: 30px;
+            }
+
+            p {
+                width: 385px;
+                height: 142px;
+                font-size: 14px;
+                font-weight: 300;
+                color: #3A54B4;
+                line-height: 1.8;
+            }
+        }
+    }       
+}

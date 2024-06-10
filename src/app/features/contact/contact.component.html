@@ -1,0 +1,77 @@
+<section class="contact" id="contact-slide">
+    <h2>Contact</h2>
+    <aside class="flex-center">
+      <div class="info">
+        <h4>Phone</h4>
+        <p>123-456-7890</p>
+      </div>
+      <div class="info">
+        <h4>Email</h4>
+        <p>info.com</p>            
+      </div>
+      <div class="info">           
+        <h4>Hours of Operation</h4>
+        <p>Mon - Fri: 9am - 8pm <br> ​​Saturday: 9am - 4pm</p>
+      </div>
+      <div class="info">           
+        <h4>Area of Service</h4>
+        <p>San Francisco &br <br> the Peninsula</p>
+      </div>
+    </aside>
+    <form  id="contact-form" class="mx-auto" #form="ngForm" [formGroup]="contactForm">        
+      <div class="row">                  
+          <div class="col-md-6">
+            <input 
+            type="text" 
+            placeholder="Name" 
+            class="form-control"
+            formControlName="name"
+            [ngClass]="{
+              'is-invalid':
+                !contactForm.controls['name'].valid && contactForm.controls['name'].touched,
+              'is-valid': contactForm.controls['name'].valid
+            }" >
+          </div>
+                              
+          <div class="col-md-6">                        
+            <input 
+            type="email" 
+            placeholder="Email" 
+            class="form-control"
+            formControlName="email"
+          [ngClass]="{
+            'is-invalid':
+              !contactForm.controls['email'].valid &&
+              contactForm.controls['email'].touched,
+            'is-valid': contactForm.controls['email'].valid
+          }"
+            >
+          </div>
+      </div>
+            
+      <div class="row">           
+          <div class="col-md-12">
+            <textarea type="text"placeholder="Type your message here..." class="form-control md-textarea" required></textarea>
+          </div>
+      </div>
+
+      
+      <button
+      class="btn"
+      [ngClass]="{
+        'btn-danger': !form.valid,
+        'btn-success': form.valid
+      }"
+      [disabled]="!form.valid"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+    </form>
+        <div class="contact-icons flex-center"> 
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+  </section>
