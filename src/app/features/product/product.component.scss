@@ -1,0 +1,31 @@
+section.container-fluid {
+    div.carousel {
+      img {
+        height: 500px;
+        object-fit: contain;
+      }
+    }
+   
+    h3.price {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+  
+      span {
+        &.line-thought {
+          text-decoration: line-through;
+          color: red;
+        }
+        &.current {
+          color: green;
+        }
+      }
+  
+      img {
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+      }
+    }
+  }

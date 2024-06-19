@@ -22,6 +22,11 @@ export const routes: Routes = [
         title: 'Products',
       },
       {
+        path: 'product/:id',
+        loadComponent: () => import('./features/product/product.component'),
+        title: 'Product',
+      },
+      {
         path: '404',
         loadComponent: () => import('./features/notfound/notfound.component'),
         title: 'Not found',

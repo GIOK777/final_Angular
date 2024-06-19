@@ -1,0 +1,76 @@
+<section class="container-fluid">
+    @if (product) {
+      <h1 class="text-center">{{ product.title }}</h1>
+      <hr />
+      <h3 class="text-center">
+        Category: {{ product.category.name }} | Uploaded:
+        {{ product.issueDate | date: "shortDate" }}
+      </h3>
+      <h6 class="text-center">
+        {{ product._id }}
+      </h6>
+      <hr />
+      <div
+        id="carouselExampleAutoplaying"
+        class="carousel slide carousel-dark"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          @for (image of product.images; track image) {
+            <div class="carousel-item" [class.active]="$index === 0">
+              <img [src]="image" class="d-block w-100" alt="{{ $index }} image" />
+            </div>
+          }
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <hr />
+      <h3 class="price">
+        Price:
+        @if (product.price.discountPercentage === 0) {
+          <span>{{ product.price.current }}</span>
+        } @else {
+          <span class="line-thought">{{ product.price.beforeDiscount }}</span>
+          <span>
+            <img
+              src="../../../assets/icons/arrow-right.svg"
+              alt="Arrow right icon"
+            />
+          </span>
+          <span class="current">{{ product.price.current }}</span>
+        }
+        <span> {{ product.price.currency }} </span>
+      </h3>
+      <p>
+        {{ product.description }}
+      </p>
+      <hr />
+      <ul class="list-group">
+        <li class="list-group-item">Stock: {{ product.stock }}</li>
+        <li class="list-group-item">Rating: {{ product.rating }}</li>
+        <li class="list-group-item">Warranty: {{ product.warranty }}</li>
+        <li class="list-group-item">Brand: {{ product.brand }}</li>
+      </ul>
+      <hr />
+    } @else {
+      <p>Product not found by this id ({{ id }})</p>
+    }
+  </section>
+
